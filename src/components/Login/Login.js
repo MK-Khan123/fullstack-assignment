@@ -19,6 +19,7 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
+    console.log(loggedInUser);
 
     const googleSignIn = () => {
         const provider = new firebase.auth.GoogleAuthProvider();

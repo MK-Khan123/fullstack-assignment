@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import background from '../../images/background.jpg';
+import image from '../../images/coca-cola-225-ltr.png';
 
 const products = [
     {
@@ -62,8 +64,28 @@ const Home = () => {
                 <input type="text" className="form-control" placeholder="Search products" aria-label="Search products" aria-describedby="button-addon2" />
                 <button className="btn btn-success" type="button" id="button-addon2">Search</button>
             </div>
-            <div className="row row-cols-1 row-cols-md-4 g-3" style={{ paddingTop: '300px', paddingBottom: '300px' }}>
-                
+            <div className="row" style={{ paddingBottom: '300px' }}>
+
+                {
+                    products.map(product => {
+                        const { productName, weight, price } = product;
+                        return (
+                            <div className="col-sm-12 col-md-4 d-flex justify-content-center mb-3">
+                                <div className="card" style={{ width: "18rem" }}>
+                                    <img src={image} className="card-img-top" alt="..." />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{productName} - {weight}</h5>
+                                        <div className='d-flex justify-content-around'>
+                                            <h3 style={{ margin:'0px' }} className="card-text">৳ {price}</h3>
+                                            <Link to="/checkout" className="btn btn-primary">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
+
             </div>
         </div>
     );

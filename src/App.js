@@ -2,8 +2,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Login from './components/Login/Login';
 import Header from './components/Header/Header';
@@ -14,6 +13,7 @@ import Deals from './components/Deals/Deals';
 import NoMatch from './components/NoMatch/NoMatch';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { createContext, useState } from 'react';
+import Checkout from './components/Checkout/Checkout';
 
 export const UserContext = createContext();
 
@@ -29,6 +29,9 @@ function App() {
             <Route path='/home'>
               <Home />
             </Route>
+            <PrivateRoute path='/checkout'>
+              <Checkout />
+            </PrivateRoute>
             <PrivateRoute path='/orders'>
               <Orders />
             </PrivateRoute>

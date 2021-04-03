@@ -1,10 +1,9 @@
 import React from 'react';
+import AddProduct from './AddProduct/AddProduct';
 
 const Admin = () => {
     return (
-        <div>
-            <h1>This is Admin Panel</h1>
-        </div>
+        <AddProduct />
     );
 };
 

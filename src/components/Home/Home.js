@@ -33,7 +33,6 @@ const Home = () => {
 
                 {
                     products.map(product => {
-                        console.log(product);
                         const { productName, productWeight, productPrice, productImage, _id } = product;
                         return (
                             <div className="col-sm-12 col-md-4 d-flex justify-content-center mb-3">

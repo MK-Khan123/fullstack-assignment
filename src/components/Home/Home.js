@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import background from '../../images/background.jpg';
+import './Home.css';
 
 const backgroundStyle = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${background})`,
@@ -36,7 +37,7 @@ const Home = () => {
                         const { productName, productWeight, productPrice, productImage, _id } = product;
                         return (
                             <div className="col-sm-12 col-md-4 d-flex justify-content-center mb-3">
-                                <div className="card" style={{ width: "18rem" }}>
+                                <div className="card cardStyle" style={{ width: "18rem" }}>
                                     <img src={productImage} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title">{productName} - {productWeight}</h5>

@@ -29,12 +29,9 @@ function App() {
             <Route path='/home'>
               <Home />
             </Route>
-            {/* <PrivateRoute path='/checkout/:id'>
+            <PrivateRoute path='/checkout/:id'>
               <Checkout />
-            </PrivateRoute> */}
-            <Route path='/checkout/:id'>
-              <Checkout />
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path='/orders'>
               <Orders />
             </PrivateRoute>

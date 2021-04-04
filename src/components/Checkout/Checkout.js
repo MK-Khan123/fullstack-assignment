@@ -28,19 +28,18 @@ const Checkout = () => {
             productQuantity: '1'
         }
 
-        // const url = "http://localhost:5000//addOrder";
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: { 'Content-type': 'application/json' },
-        //     body: JSON.stringify(orderData)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if(data){
-        //             alert('Order placed successfully! Please check Orders page');
-        //         }
-        //     });
-        console.log(orderData);
+        const url = "http://localhost:5000/addOrder";
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(orderData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    alert('Order placed successfully! Please check Orders page');
+                }
+            });
     }
 
     return (

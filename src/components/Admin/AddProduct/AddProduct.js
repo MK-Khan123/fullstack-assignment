@@ -3,14 +3,13 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState();
 
     const handleImageUpload = event => {
         console.log(event.target.files[0]);
 
         const imageData = new FormData();
-        console.log(imageData);
         imageData.set('key', 'b352dbf4911ad9cff5dc774e2d6c1446');
         imageData.append('image', event.target.files[0]);
 
@@ -22,7 +21,21 @@ const AddProduct = () => {
         while (currentTime + 4000 >= new Date().getTime());
     };
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        const productData = {
+            productName: data.productName,
+            productWeight: data.productWeight,
+            productPrice: data.productPrice,
+            productImage: imageURL
+        };
+        const url = 'http://localhost:5000/addProduct';
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(productData)
+        })
+            .then(res => console.log('server side response', res));
+    };
 
     return (
         <div>
@@ -33,7 +46,7 @@ const AddProduct = () => {
                     <label className="form-label">
                         <h4>Product Name</h4>
                     </label>
-                    <input className="form-control" type="text" {...register('productName', { required: true })} />
+                    <input name="productName" className="form-control" type="text" ref={register({ required: true })} />
                     {errors.productName && <span style={{ color: 'red' }}>Product name is required</span>}
                 </div>
 
@@ -41,14 +54,15 @@ const AddProduct = () => {
                     <label className="form-label">
                         <h4>Upload Product Image</h4>
                     </label>
-                    <input className="form-control" type="file" {...register('productImage', 'handleImageUpload', { required: true })} />
+                    <input name="productImage" className="form-control" type="file" onChange={handleImageUpload} ref={register({ required: true })} />
+                    {errors.productImage && <span style={{ color: 'red' }}>Product image is required</span>}
                 </div>
 
                 <div className="mb-3">
                     <label className="form-label">
                         <h4>Product Weight</h4>
                     </label>
-                    <input className="form-control" type="text" placeholder="for e.g. in gm/kg/ltr" {...register('productWeight', { required: true })} />
+                    <input name="productWeight" className="form-control" type="text" placeholder="for e.g. in gm/kg/ltr" ref={register({ required: true })} />
                     {errors.productWeight && <span style={{ color: 'red' }}>Product weight is required</span>}
                 </div>
 
@@ -56,7 +70,7 @@ const AddProduct = () => {
                     <label className="form-label">
                         <h4>Product Price</h4>
                     </label>
-                    <input className="form-control" type="number" placeholder="in Taka" {...register('productPrice', { required: true })} />
+                    <input name="productPrice" className="form-control" type="number" placeholder="in Taka" ref={register({ required: true })} />
                     {errors.productPrice && <span style={{ color: 'red' }}>Product price is required</span>}
                 </div>
 

@@ -35,11 +35,12 @@ const AddProduct = () => {
             body: JSON.stringify(productData)
         })
             .then(res => console.log('server side response', res));
+        alert("Product added successfully! Please go to Home page to see the update.")
     };
 
     return (
-        <div>
-            <h1 style={{ paddingBottom: "30px" }}>Add your products here</h1>
+        <div style={{ border: "1px solid lightgray", padding: "30px" }}>
+            <h1 style={{ paddingBottom: "30px", paddingTop: "20px" }}>Add your products here</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="mb-3">
@@ -74,7 +75,7 @@ const AddProduct = () => {
                     {errors.productPrice && <span style={{ color: 'red' }}>Product price is required</span>}
                 </div>
 
-                <div style={{ textAlign: "end" }}>
+                <div style={{ textAlign: "end", paddingBottom: "50px" }}>
                     <button className="btn btn-success" type="submit">Save</button>
                 </div>
 

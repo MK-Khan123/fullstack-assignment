@@ -35,11 +35,8 @@ const Checkout = () => {
             body: JSON.stringify(orderData)
         })
             .then(res => res.json())
-            .then(data => {
-                if(data){
-                    alert('Order placed successfully! Please check Orders page');
-                }
-            });
+            .then(data => console.log(data));
+        alert('Order placed successfully! Please check Orders page');
     }
 
     return (

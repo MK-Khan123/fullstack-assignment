@@ -26,7 +26,7 @@ const Checkout = () => {
             productPrice: productPrice,
             productWeight: productWeight,
             productQuantity: '1'
-        }
+        };
 
         const url = "http://localhost:5000/addOrder";
         fetch(url, {

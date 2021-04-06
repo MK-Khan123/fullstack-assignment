@@ -35,7 +35,7 @@ const Login = () => {
                 const errorMessage = error.message;
                 console.log(errorMessage);
             });
-    }
+    };
 
     const facebookSignIn = () => {
         const provider = new firebase.auth.FacebookAuthProvider();
@@ -52,7 +52,7 @@ const Login = () => {
                 const errorMessage = error.message;
                 console.log(errorMessage);
             });
-    }
+    };
 
     return (
         <div style={{ padding: '40px', border: '1px solid black' }}>

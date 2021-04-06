@@ -21,7 +21,7 @@ const ManageProducts = () => {
             .then(res => res.json())
             .then(result => console.log(result));
         alert("Product removed successfully! Please go to Home page to see the update.");
-    }
+    };
 
     return (
         <div>
@@ -34,6 +34,7 @@ const ManageProducts = () => {
                     </div>
                 </div>
             }
+            {/* A TABULAR DISPLAY OF PRODUCTS ALONG WITH THEIR RESPECTIVE DELETE BUTTON */}
             <table className="table table-striped table-hover border mt-5">
                 <thead className="table-dark">
                     <tr>

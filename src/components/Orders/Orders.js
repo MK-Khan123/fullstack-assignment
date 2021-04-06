@@ -17,7 +17,7 @@ const Orders = () => {
         <div>
             <h1 style={{ paddingTop: '70px' }}>Order Summary</h1>
             <h5 className="text-center pt-3">Greetings {loggedInUser.displayName}!</h5>
-            
+
             {/* SPINNER ADDED */}
             {
                 orders.length === 0 &&
@@ -27,7 +27,7 @@ const Orders = () => {
                     </div>
                 </div>
             }
-            
+
             <table className="table table-dark table-striped mt-5">
                 <thead>
                     <tr>

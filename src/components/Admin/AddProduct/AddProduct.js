@@ -7,8 +7,6 @@ const AddProduct = () => {
     const [imageURL, setImageURL] = useState();
 
     const handleImageUpload = event => {
-        console.log(event.target.files[0]);
-
         const imageData = new FormData();
         imageData.set('key', 'b352dbf4911ad9cff5dc774e2d6c1446');
         imageData.append('image', event.target.files[0]);
@@ -17,7 +15,7 @@ const AddProduct = () => {
             .then(res => setImageURL(res.data.data.display_url))
             .catch(error => console.log(error));
 
-        const currentTime = new Date().getTime(); //This 4s delay is used so that the image gets uploaded on ImgBB and generates an URL which is sent to MongoDB database.
+        const currentTime = new Date().getTime(); //This 4s delay is used so that the image gets uploaded on ImgBB and generates an URL which will be sent to MongoDB database after pressing 'Save'.
         while (currentTime + 4000 >= new Date().getTime());
     };
 
@@ -35,12 +33,14 @@ const AddProduct = () => {
             body: JSON.stringify(productData)
         })
             .then(res => console.log('server side response', res));
-        alert("Product added successfully! Please go to Home page to see the update.")
+        alert("Product added successfully! Please go to Home page to see the update.");
     };
 
     return (
         <div style={{ border: "1px solid lightgray", padding: "30px" }}>
             <h1 style={{ paddingBottom: "30px", paddingTop: "20px" }}>Add your products here</h1>
+
+            {/* ADD PRODUCT FORM starts */}
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="mb-3">
@@ -80,6 +80,7 @@ const AddProduct = () => {
                 </div>
 
             </form>
+            {/* ADD PRODUCT FORM ends */}
         </div>
     );
 };

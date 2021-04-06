@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const Header = () => {
-    
+
     const [loggedInUser] = useContext(UserContext);
-    
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

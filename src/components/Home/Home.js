@@ -18,7 +18,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const url = 'http://localhost:5000/products';
+        const url = 'https://fathomless-sea-62804.herokuapp.com/products';
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data));

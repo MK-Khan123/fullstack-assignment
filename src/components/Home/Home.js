@@ -18,7 +18,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const url = 'https://fathomless-sea-62804.herokuapp.com/products';
+        const url = 'https://frozen-scrubland-31623.herokuapp.com/products';
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data));

@@ -26,7 +26,7 @@ const AddProduct = () => {
             productPrice: data.productPrice,
             productImage: imageURL
         };
-        const url = 'https://fathomless-sea-62804.herokuapp.com/addProduct';
+        const url = 'https://frozen-scrubland-31623.herokuapp.com/addProduct';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

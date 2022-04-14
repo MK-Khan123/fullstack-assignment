@@ -9,7 +9,7 @@ const Checkout = () => {
     const [loggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        const url = `https://fathomless-sea-62804.herokuapp.com/product/${id}`;
+        const url = `https://frozen-scrubland-31623.herokuapp.com/product/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -28,7 +28,7 @@ const Checkout = () => {
             productQuantity: '1'
         };
 
-        const url = "https://fathomless-sea-62804.herokuapp.com/addOrder";
+        const url = "https://frozen-scrubland-31623.herokuapp.com/addOrder";
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

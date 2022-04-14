@@ -7,7 +7,7 @@ const Orders = () => {
     const [loggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        const url = 'https://fathomless-sea-62804.herokuapp.com/orders?email=' + loggedInUser.email;
+        const url = 'https://frozen-scrubland-31623.herokuapp.com/orders?email=' + loggedInUser.email;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));

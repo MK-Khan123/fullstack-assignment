@@ -7,14 +7,14 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const url = 'https://fathomless-sea-62804.herokuapp.com/products';
+        const url = 'https://frozen-scrubland-31623.herokuapp.com/products';
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
 
     const handleDeleteProduct = (id) => {
-        const url = `https://fathomless-sea-62804.herokuapp.com/deleteProduct/${id}`;
+        const url = `https://frozen-scrubland-31623.herokuapp.com/deleteProduct/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
